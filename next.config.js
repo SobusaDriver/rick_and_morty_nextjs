@@ -1,6 +1,13 @@
+const { hostname } = require("os");
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-}
+	reactStrictMode: true,
+	images: {
+		remotePatterns: [
+			{ protocol: "https", hostname: "rickandmortyapi.com", port: "" },
+		],
+	},
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

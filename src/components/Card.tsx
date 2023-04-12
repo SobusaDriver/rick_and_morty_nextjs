@@ -9,11 +9,17 @@ type Props = {
 const Card: FC<Props> = ({ imageSrc, title, body }) => {
 	return (
 		<div className="block max-w-sm rounded-lg bg-white p-6 shadow-lg dark:bg-neutral-700 hover:bg-gray-100">
-			<Image src={imageSrc} alt="heading card image" />
-			<h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+			<Image
+				src={imageSrc}
+				width="100"
+				height="100"
+				alt="heading card image"
+				className="lg:h-48 md:h-36 w-full object-cover object-center rounded"
+			/>
+			<h5 className="pt-2 mb-1 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
 				{title}
 			</h5>
-			<p className="mb-4 text-base text-neutral-600 dark:text-neutral-200">
+			<p className="mb-2 text-base text-neutral-600 dark:text-neutral-200">
 				{body}
 			</p>
 		</div>
