@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import SearchField from "./SearchField";
+import Link from "next/link";
 
 const Navbar = () => {
 	const [opened, setOpened] = useState(false);
@@ -28,47 +29,47 @@ const Navbar = () => {
 			{opened && (
 				<div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
 					<div className="text-lg lg:flex-grow">
-						<a
+						<Link
 							href="#responsive-header"
 							className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
 						>
 							Characters
-						</a>
-						<a
+						</Link>
+						<Link
 							href="#responsive-header"
 							className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
 						>
 							Episodes
-						</a>
-						<a
+						</Link>
+						<Link
 							href="#responsive-header"
 							className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white"
 						>
 							Locations
-						</a>
+						</Link>
 					</div>
 				</div>
 			)}
 			<div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto sm:hidden">
 				<div className="text-sm lg:flex-grow">
-					<a
+					<Link
 						href="#responsive-header"
 						className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
 					>
 						Characters
-					</a>
-					<a
+					</Link>
+					<Link
 						href="#responsive-header"
 						className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white mr-4"
 					>
 						Episodes
-					</a>
-					<a
+					</Link>
+					<Link
 						href="#responsive-header"
 						className="block mt-4 lg:inline-block lg:mt-0 text-teal-200 hover:text-white"
 					>
 						Locations
-					</a>
+					</Link>
 				</div>
 				<SearchField />
 			</div>
