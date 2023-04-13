@@ -8,11 +8,8 @@ type Props = {
 };
 const Pager: FC<Props> = ({ actualPage, complement }) => {
 	return (
-		<nav
-			aria-label="Page navigation"
-			className="grtid grid-cols-2 place-content-center"
-		>
-			<ul className="inline-flex ">
+		<nav aria-label="Page navigation" className="flex items-center pb-4">
+			<ul className="w-screen flex justify-center">
 				<li>
 					<Link
 						href={`/${complement}${Number(actualPage) - 1}`}

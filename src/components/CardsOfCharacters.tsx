@@ -8,12 +8,12 @@ type Props = {
 
 const CardsContainer: FC<Props> = ({ ListOfCharacters }) => {
 	return (
-		<div className='grid xl:grid-cols-5 md:grid-cols-4 sm:grid-cols-2 gap-4'>
+		<div className='grid xl:grid-cols-5 md:grid-cols-4 sm:grid-cols-2 gap-5'>
 			{ListOfCharacters.map((character: Character) => (
 				<Card
 					imageSrc={character.image || undefined}
 					title={character.name}
-					body={character.species}
+					body={`${character.species} - ${character.type} - ${character.status}`}
 				/>
 			))}
 		</div>

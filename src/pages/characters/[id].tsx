@@ -1,19 +1,18 @@
-import CardsContainer from "@/components/CardsOfLocations";
+import CardsContainer from "@/components/CardsOfCharacters";
 import Navbar from "@/components/Navbar";
 import {
 	API_URL,
-	LOCATION_COMPLEMENT,
+	CHARACTER_COMPLEMENT,
 	PAGINATION_COMPLEMENT,
 } from "@/constants";
 import { GetServerSideProps } from "next";
-import { useRouter } from "next/router";
 import { ParsedUrlQuery } from "querystring";
-import Location from "@/models/Location";
 import React from "react";
 import Pager from "@/components/Pager";
+import Character from "@/models/Character";
 
-interface locationProps {
-	listOfLocations: Array<Location>;
+interface CharacterProps {
+	listOfCharacters: Array<Character>;
 	totalPages: number;
 	actualPage: number;
 }
@@ -25,13 +24,13 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 	const { id } = context.params as Params;
 
 	const req = await fetch(
-		API_URL + LOCATION_COMPLEMENT + PAGINATION_COMPLEMENT + id,
+		API_URL + CHARACTER_COMPLEMENT + PAGINATION_COMPLEMENT + id,
 	);
 	const req_parsed = await req.json();
 
 	return {
 		props: {
-			listOfLocations: req_parsed.results,
+			listOfCharacters: req_parsed.results,
 			totalPages: req_parsed.info.pages,
 			actualPage: id,
 		},
@@ -39,24 +38,20 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 };
 
 const LocationPage = ({
-	listOfLocations,
+	listOfCharacters,
 	totalPages,
 	actualPage,
-}: locationProps) => {
-	const router = useRouter();
-
-	const { id } = router.query;
-
+}: CharacterProps) => {
 	return (
 		<main>
 			<Navbar />
 			<h3 className="p-6 mb-1 text-4xl font-medium leading-tight">
-				List Of Locations
+				List Of Characters
 			</h3>
-			<CardsContainer ListOfLocations={listOfLocations} />
+			<CardsContainer ListOfCharacters={listOfCharacters} />
 			<div>Actual Page: {actualPage}</div>
 			<div>Total Pages: {totalPages}</div>
-			<Pager actualPage={actualPage} complement="locations/" />
+			<Pager actualPage={actualPage} complement="characters/" />
 		</main>
 	);
 };

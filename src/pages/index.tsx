@@ -23,12 +23,13 @@ export default function Home({ listOfCharacters }: HomeProps) {
 
 	return (
 		<>
-			<main>
+			<main xc>
 				<Navbar />
-				<h3 className="p-6 mb-1 text-4xl font-medium leading-tight">
-					List Of Characters
-				</h3>
-				<CardsContainer ListOfCharacters={listOfCharacters} />
+				<div className="h-screen flex justify-center items-center">
+					<h3 className="p-6 mb-1 text-4xl font-medium leading-tight">
+						Welcome to the wiki
+					</h3>
+				</div>
 			</main>
 		</>
 	);
