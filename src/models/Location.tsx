@@ -1,4 +1,5 @@
-type LocationPlanet = {
+type Location = {
+	id: number;
 	name: string;
 	url: string;
 	type?: string;
@@ -7,4 +8,4 @@ type LocationPlanet = {
 	created?: string;
 };
 
-export default LocationPlanet;
+export default Location;

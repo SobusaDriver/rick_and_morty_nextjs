@@ -4,7 +4,7 @@ import SearchField from "@/components/SearchField";
 import Character from "@/models/Character";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { API_URL, CHARACTER_COMPLEMENT } from "@/constants";
-import CardsContainer from "@/components/CardsContainer";
+import CardsContainer from "@/components/CardsOfCharacters";
 
 const inter = Inter({ subsets: ["latin"] });
 

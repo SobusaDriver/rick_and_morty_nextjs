@@ -11,7 +11,7 @@ const CardsContainer: FC<Props> = ({ ListOfCharacters }) => {
 		<div className='grid xl:grid-cols-5 md:grid-cols-4 sm:grid-cols-2 gap-4'>
 			{ListOfCharacters.map((character: Character) => (
 				<Card
-					imageSrc={character.image}
+					imageSrc={character.image || undefined}
 					title={character.name}
 					body={character.species}
 				/>
