@@ -23,7 +23,7 @@ export default function Home({ listOfCharacters }: HomeProps) {
 
 	return (
 		<>
-			<main xc>
+			<main>
 				<Navbar />
 				<div className="h-screen flex justify-center items-center">
 					<h3 className="p-6 mb-1 text-4xl font-medium leading-tight">
