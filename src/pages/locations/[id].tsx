@@ -44,15 +44,21 @@ const LocationPage = ({
 	actualPage,
 }: locationProps) => {
 	return (
-		<main>
+		<main className="h-screen flex flex-col">
 			<Navbar />
 			<h3 className="p-6 mb-1 text-4xl font-medium leading-tight">
 				List Of Locations
 			</h3>
-			<CardsContainer ListOfLocations={listOfLocations} />
+			<div className="flex-1">
+				<CardsContainer ListOfLocations={listOfLocations} />
+			</div>
 			<div>Actual Page: {actualPage}</div>
 			<div>Total Pages: {totalPages}</div>
-			<Pager actualPage={actualPage} complement="locations/" />
+			<Pager
+				actualPage={actualPage}
+				totalPages={totalPages}
+				complement="locations/"
+			/>
 		</main>
 	);
 };

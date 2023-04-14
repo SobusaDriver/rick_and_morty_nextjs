@@ -1,36 +1,41 @@
 import { Inter } from "next/font/google";
 import Navbar from "@/components/Navbar";
-import SearchField from "@/components/SearchField";
-import Character from "@/models/Character";
-import { GetServerSideProps, InferGetServerSidePropsType } from "next";
-import { API_URL, CHARACTER_COMPLEMENT } from "@/constants";
-import CardsContainer from "@/components/CardsOfCharacters";
+import Card from "@/components/Card";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
-interface HomeProps {
-	listOfCharacters: Array<Character>;
-}
-
-export const getServerSideProps: GetServerSideProps = async (context) => {
-	const res = await fetch(API_URL + CHARACTER_COMPLEMENT);
-	const res_parsed = await res.json();
-	return { props: { listOfCharacters: res_parsed.results } };
-};
-
-export default function Home({ listOfCharacters }: HomeProps) {
-	console.log(listOfCharacters.length);
-
+export default function Home() {
 	return (
-		<>
-			<main>
-				<Navbar />
-				<div className="h-screen flex justify-center items-center">
+		<main className="flex h-screen flex-col">
+			<Navbar />
+			<div className=" flex-1 flex flex-col">
+				<div className="flex-1 flex justify-center items-end pt-10">
 					<h3 className="p-6 mb-1 text-4xl font-medium leading-tight">
-						Welcome to the wiki
+						Welcome to the Rick and Morty wiki
 					</h3>
 				</div>
-			</main>
-		</>
+				<div className="flex-1 w-2/3 mx-auto flex items-top justify-center gap-5 pb-4 pt-10">
+					<Link href="/characters/1">
+						<Card
+							title="Characters"
+							body="A List of characters from Rick and Morty TV Show."
+						/>
+					</Link>
+					<Link href="/episodes/1">
+						<Card
+							title="Episodes"
+							body="A List of episodes from Rick and Morty TV Show."
+						/>
+					</Link>
+					<Link href="/locations/1">
+						<Card
+							title="Locations"
+							body="A List of locations from Rick and Morty TV Show."
+						/>
+					</Link>
+				</div>
+			</div>
+		</main>
 	);
 }

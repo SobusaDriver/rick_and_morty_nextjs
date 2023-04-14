@@ -7,3 +7,5 @@ type Episode = {
 	url: string;
 	created?: string;
 };
+
+export default Episode;

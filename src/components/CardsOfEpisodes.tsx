@@ -1,6 +1,6 @@
 import { FC } from "react";
 import Card from "./Card";
-import Character from "@/models/Character";
+import Episode from "@/models/Episode";
 
 type Props = {
 	ListOfEpisodes: Array<Episode>;
