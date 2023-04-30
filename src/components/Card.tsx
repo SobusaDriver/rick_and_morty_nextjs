@@ -8,7 +8,7 @@ type Props = {
 };
 const Card: FC<Props> = ({ imageSrc, title, body }) => {
 	return (
-		<div className="block max-w-sm rounded-lg bg-white p-6 shadow-lg dark:bg-neutral-700 hover:bg-gray-100">
+		<div className="block max-w-sm rounded-lg bg-white p-6 shadow-lg dark:bg-neutral-700 hover:bg-gray-100" >
 			{imageSrc && (
 				<Image
 					src={imageSrc}

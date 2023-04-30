@@ -22,32 +22,28 @@ interface Params extends ParsedUrlQuery {
 }
 
 export const getStaticPaths: GetStaticPaths<Params> = async () => {
-	const req = await fetch(`${API_URL}${EPISODE_COMPLEMENT}${PAGINATION_COMPLEMENT}1`);
+	const url = `${API_URL}${EPISODE_COMPLEMENT}${PAGINATION_COMPLEMENT}1`;
+	const req = await fetch(url);
 	const req_parsed = await req.json();
-	const paths: Array<object> = [];
+	const paths: Array<{ params: { id: string } }> = [];
 	for (let i = 1; i <= req_parsed.info.pages; i++) {
 		paths.push({
 			params: {
-				id: `${i}`
-			}
+				id: `${i}`,
+			},
 		});
 	}
 	return {
 		paths,
-		fallback: 'blocking'
-	}
-
-}
-
+		fallback: "blocking",
+	};
+};
 
 export const getStaticProps: GetStaticProps = async (context) => {
 	const { id } = context.params as Params;
-
-	const req = await fetch(
-		API_URL + EPISODE_COMPLEMENT + PAGINATION_COMPLEMENT + id,
-	);
+	const url = `${API_URL}${EPISODE_COMPLEMENT}${PAGINATION_COMPLEMENT}${id}`;
+	const req = await fetch(url);
 	const req_parsed = await req.json();
-
 	return {
 		props: {
 			listOfEpisodes: req_parsed.results,

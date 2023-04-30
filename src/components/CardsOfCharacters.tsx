@@ -13,6 +13,7 @@ const CardsContainer: FC<Props> = ({ ListOfCharacters }) => {
 				<Card
 					imageSrc={character.image || undefined}
 					title={character.name}
+					key={character.name}
 					body={`${character.species} - ${character.type} - ${character.status}`}
 				/>
 			))}
